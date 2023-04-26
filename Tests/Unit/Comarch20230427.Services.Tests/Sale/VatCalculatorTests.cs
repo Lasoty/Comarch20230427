@@ -11,6 +11,7 @@ namespace Comarch20230427.Services.Tests.Sale
     {
         [TestCase(10, 23, 12.3d)]
         [TestCase(20, 23, 24.6d)]
+        [MaxTime(100)]
         public void CalculatePriceShouldReturnCorrectBruttoValue
             (decimal netto, decimal vat, decimal expected)
         {
@@ -23,5 +24,20 @@ namespace Comarch20230427.Services.Tests.Sale
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase(-1)]
+        [TestCase(101)]
+        public void CalculatePriceShouldThrowsOutOfRangeException(decimal vat)
+        {
+            //Arrange
+            VatCalculator calculator = new VatCalculator();
+            decimal netto = 10;
+
+            //Act
+            //Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => calculator.CalculatePrice(netto, vat));
+
+        }
+
     }
 }
