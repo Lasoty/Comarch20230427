@@ -48,5 +48,40 @@ namespace Comarch20230427.Services.FluentTests.Invoicing
             actual.TotalGrossValue.Should().Be(33.7m);
             actual.TotalNetValue.Should().Be(30);
         }
+
+        [Test]
+        public void GenerateInvoiceShouldRasieInvoiceCreatedEvent()
+        {
+            //Arrange 
+            InvoiceService service = new InvoiceService(null);
+            using var monitorSubject = service.Monitor();
+
+            var items = new List<BasketItem> {
+                new BasketItem
+                {
+                    Id = 1,
+                    Name = "Test",
+                    NetPrice = 10,
+                    Tax = 23,
+                    Count = 1
+                }
+            };
+
+            Invoice? eventInvoice = null;
+
+            DateTime actualDate = 27.April(2023);
+            service.InvoiceCreated += (sender, invoice) =>
+            {
+                eventInvoice = invoice;
+            };
+
+            // Act
+            Invoice actual = service.GenerateInvoice(actualDate, items.ToArray());
+
+            //Assert
+            monitorSubject.Should().Raise(nameof(InvoiceService.InvoiceCreated));
+
+            eventInvoice.Should().NotBeNull();
+        }
     }
 }

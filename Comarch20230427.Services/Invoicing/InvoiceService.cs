@@ -33,6 +33,10 @@ public class InvoiceService
         invoice.TotalNetValue = invoice.Items.Sum(x => x.NetValue);
         invoice.TotalGrossValue = invoice.Items.Sum(x => x.GrossValue);
 
+        InvoiceCreated?.Invoke(this, invoice);
+
         return invoice;
     }
+
+    public event EventHandler<Invoice> InvoiceCreated;
 }
