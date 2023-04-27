@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comarch20230427", "Comarch20230427\Comarch20230427.csproj", "{94E3A170-17D8-4ADF-973A-71071BB17AD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comarch20230427", "Comarch20230427\Comarch20230427.csproj", "{94E3A170-17D8-4ADF-973A-71071BB17AD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comarch20230427.Services", "Comarch20230427.Services\Comarch20230427.Services.csproj", "{BCB24391-4F6F-4ED1-A48A-110ADC1F3D77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comarch20230427.Services", "Comarch20230427.Services\Comarch20230427.Services.csproj", "{BCB24391-4F6F-4ED1-A48A-110ADC1F3D77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comarch20230427.Model", "Comarch20230427.Model\Comarch20230427.Model.csproj", "{CC8C38BF-DF51-4E78-AA8E-E15390BA5C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comarch20230427.Model", "Comarch20230427.Model\Comarch20230427.Model.csproj", "{CC8C38BF-DF51-4E78-AA8E-E15390BA5C11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{846A89B8-55A5-4782-B56B-966F5D4BFD3F}"
 EndProject
@@ -17,12 +17,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{753B0997-1A2F-44AC-9E46-8BD694A9EA08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comarch20230427.Services.Tests", "Tests\Unit\Comarch20230427.Services.Tests\Comarch20230427.Services.Tests.csproj", "{20F54F79-F305-4A5B-A1DE-C9042C6A9751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comarch20230427.Services.Tests", "Tests\Unit\Comarch20230427.Services.Tests\Comarch20230427.Services.Tests.csproj", "{20F54F79-F305-4A5B-A1DE-C9042C6A9751}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D50E2A8-DFCB-4A9F-8967-0206000FF1F5}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comarch20230427.Services.FluentTests", "Tests\Unit\Comarch20230427.Services.FluentTests\Comarch20230427.Services.FluentTests.csproj", "{2531E231-A17F-417D-B256-D7B5DA4007B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{20F54F79-F305-4A5B-A1DE-C9042C6A9751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20F54F79-F305-4A5B-A1DE-C9042C6A9751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20F54F79-F305-4A5B-A1DE-C9042C6A9751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2531E231-A17F-417D-B256-D7B5DA4007B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2531E231-A17F-417D-B256-D7B5DA4007B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2531E231-A17F-417D-B256-D7B5DA4007B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2531E231-A17F-417D-B256-D7B5DA4007B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{CCFB2236-8400-4D37-885D-E8A5BA523CC4} = {846A89B8-55A5-4782-B56B-966F5D4BFD3F}
 		{753B0997-1A2F-44AC-9E46-8BD694A9EA08} = {846A89B8-55A5-4782-B56B-966F5D4BFD3F}
 		{20F54F79-F305-4A5B-A1DE-C9042C6A9751} = {753B0997-1A2F-44AC-9E46-8BD694A9EA08}
+		{2531E231-A17F-417D-B256-D7B5DA4007B4} = {753B0997-1A2F-44AC-9E46-8BD694A9EA08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0088C5DB-C177-43DA-A36E-C349056512CC}
