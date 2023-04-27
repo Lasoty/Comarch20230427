@@ -46,5 +46,14 @@ namespace BMICalculator.Services.Tests
             actual.Should().NotBeNull();
             actual.BmiClassification.Should().Be(BmiClassification.Underweight);
         }
+
+        [Test]
+        public void GetResultShouldCallCreateCalculatorOnlyOnes()
+        {
+            bmiCalculatorFactoryMock.Setup(x => x.CreateCalculator(It.IsAny<UnitSystem>()))
+                .Returns(new MetricBmiCalculator());
+            var result = bmiCalculatorFacade.GetResult(100, 200, UnitSystem.Metric);
+            bmiCalculatorFactoryMock.Verify(x => x.CreateCalculator(It.IsAny<UnitSystem>()), Times.Once());
+        }
     }
 }
