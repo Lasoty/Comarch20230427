@@ -15,24 +15,25 @@ using System.Threading.Tasks;
 
 namespace BMICalculator.Services.Tests
 {
-    public class BmiCalculatorFacadeDiTests
+    public class BmiCalculatorFacadeTests
     {
-        private BmiCalculatorFacade bmiCalculatorFacade;
         private Mock<IBmiCalculatorFactory> bmiCalculatorFactoryMock;
         private Mock<IResultRepository> resultRepositoryMock;
+        private IContainer ioc;
+        private IBmiCalculatorFacade bmiCalculatorFacade;
 
         [SetUp]
         public void Setup()
         {
-            Mock<IBmiDeterminator> bmiDeterminatorMock = new Mock<IBmiDeterminator>();
-            bmiCalculatorFactoryMock = new Mock<IBmiCalculatorFactory>();
-            resultRepositoryMock = new Mock<IResultRepository>();
+            RegisterHelper registerHelper = new RegisterHelper();
+            ContainerBuilder builder = registerHelper.GetContainerBuilder();
 
-            bmiCalculatorFacade = new BmiCalculatorFacade(
-                bmiDeterminatorMock.Object,
-                bmiCalculatorFactoryMock.Object,
-                resultRepositoryMock.Object
-                );
+            bmiCalculatorFactoryMock = registerHelper.BmiCalculatorFactoryMock;
+            resultRepositoryMock = registerHelper.ResultRepositoryMock;
+
+            builder.RegisterType<BmiCalculatorFacade>().As<IBmiCalculatorFacade>();
+            ioc = builder.Build();
+            bmiCalculatorFacade = ioc.Resolve<IBmiCalculatorFacade>();
         }
 
         [Test]
