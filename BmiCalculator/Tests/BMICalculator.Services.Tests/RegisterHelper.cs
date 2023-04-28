@@ -1,6 +1,9 @@
 ﻿using Autofac;
+using BMICalculator.Model.Data;
 using BMICalculator.Model.Repositories;
 using BMICalculator.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -28,6 +31,21 @@ namespace BMICalculator.Services.Tests
             containerBuilder.RegisterInstance(ResultRepositoryMock.Object).As<IResultRepository>();
 
             return containerBuilder;
+        }
+
+        public void RegisterDbContext(ContainerBuilder builder)
+        {
+            builder.RegisterType<ApplicationDbContext>()
+                .WithParameter("options", CreateDbContextOptions())
+                .InstancePerLifetimeScope();
+        }
+
+        private DbContextOptions<ApplicationDbContext> CreateDbContextOptions()
+        {
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            builder.UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+            return builder.Options;
         }
     }
 }
