@@ -67,6 +67,7 @@ namespace BMICalculator.Services.Tests
             //Assert
             BmiMeasurement? savedMeasurement = dbContext.BmiMeasurements.FirstOrDefault(x => x.Id == measurement.Id);
 
+            dbContext.BmiMeasurements.ToList().Should().HaveCountGreaterThan(2);
             savedMeasurement.Should().NotBeNull();
             savedMeasurement.Id.Should().Be(measurement.Id);
             savedMeasurement.Bmi.Should().Be(measurement.Bmi);
