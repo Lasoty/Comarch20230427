@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using AutoFixture;
+using AutoFixture.AutoMoq;
 using BMICalculator.Model.Data;
 using BMICalculator.Model.DTO;
 using BMICalculator.Model.Model;
@@ -16,6 +18,7 @@ namespace BMICalculator.Services.Tests
     public class InMemoryTests
     {
         IContainer ioc;
+        IFixture fixture;
 
         [SetUp]
         public void SetUp() 
@@ -27,6 +30,7 @@ namespace BMICalculator.Services.Tests
             builder.RegisterType<ResultRepository>().As<IResultRepository>();
             ioc = builder.Build();
 
+            fixture = new Fixture().Customize(new AutoMoqCustomization());
             InitializeData();
         }
 
@@ -34,11 +38,7 @@ namespace BMICalculator.Services.Tests
         {
             using var dbContext = ioc.BeginLifetimeScope().Resolve<ApplicationDbContext>();
 
-            List<BmiMeasurement> bmiMeasurements = new()
-            {
-                new BmiMeasurement { Id = Guid.NewGuid(), Bmi = 20, BmiClassification = BmiClassification.Normal, Date = 1.March(2023) },
-                new BmiMeasurement { Id = Guid.NewGuid(), Bmi = 30, BmiClassification = BmiClassification.Obesity, Date = 27.March(2022) }
-            };
+            List<BmiMeasurement> bmiMeasurements = fixture.CreateMany<BmiMeasurement>(2).ToList();
 
             dbContext.BmiMeasurements.AddRange(bmiMeasurements);
             dbContext.SaveChanges();
@@ -49,14 +49,7 @@ namespace BMICalculator.Services.Tests
         public async Task SaveResultShouldInsertRecordToDb()
         {
             //Arrange
-            BmiMeasurement measurement = new()
-            {
-                Id = Guid.NewGuid(),
-                Bmi = 20,
-                BmiClassification = BmiClassification.Normal,
-                Date = 28.April(2023),
-                Summary = "Not OK"
-            };
+            BmiMeasurement measurement = fixture.Create<BmiMeasurement>();
 
             var bmiFacade = ioc.Resolve<IBmiCalculatorFacade>();
             using var dbContext = ioc.BeginLifetimeScope().Resolve<ApplicationDbContext>();
