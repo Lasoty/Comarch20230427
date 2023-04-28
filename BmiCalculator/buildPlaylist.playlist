@@ -1,0 +1,105 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="BMICalculator.Services.Tests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="BMICalculator.Services.Tests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="MetricBmiCalculatorTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.MetricBmiCalculatorTests.CalculateBmiShouldReturnValidBmi" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CalculateBmiShouldReturnValidBmi(110,180,31,100)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldReturnValidBmi(82,180,25,30)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldReturnValidBmi(50,180,14,18)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldReturnValidBmi(65,180,18,24)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.MetricBmiCalculatorTests.CalculateBmiShouldThrowExceptionWhenArgumentNotValid" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CalculateBmiShouldThrowExceptionWhenArgumentNotValid(0,180)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldThrowExceptionWhenArgumentNotValid(80,0)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldThrowExceptionWhenArgumentNotValid(0,0)" />
+                        <Property Name="DisplayName" Value="CalculateBmiShouldThrowExceptionWhenArgumentNotValid(-1,-1)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="ResultServiceTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.ResultServiceTests.SaveUnderweightResultAsyncShouldCallSaveResultOnlyOnce" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SaveUnderweightResultAsyncShouldCallSaveResultOnlyOnce" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.ResultServiceTests.SetRecentOverweightResultShouldChangeStateResultService" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SetRecentOverweightResultShouldChangeStateResultService" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="BmiCalculatorFacadeTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeTests.GetResultShouldCallCreateCalculatorOnlyOnes" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetResultShouldCallCreateCalculatorOnlyOnes" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeTests.GetResultShouldResultUnderwightWhenWeightIsLow" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetResultShouldResultUnderwightWhenWeightIsLow" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeTests.SaveResultShouldSaveCorrectObject" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SaveResultShouldSaveCorrectObject" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="BmiCalculatorFacadeDiTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeDiTests.GetResultShouldCallCreateCalculatorOnlyOnes" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetResultShouldCallCreateCalculatorOnlyOnes" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeDiTests.GetResultShouldResultUnderwightWhenWeightIsLow" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetResultShouldResultUnderwightWhenWeightIsLow" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BMICalculator.Services.Tests.BmiCalculatorFacadeDiTests.SaveResultShouldSaveCorrectObject" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SaveResultShouldSaveCorrectObject" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

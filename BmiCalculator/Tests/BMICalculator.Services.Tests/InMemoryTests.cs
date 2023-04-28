@@ -45,6 +45,7 @@ namespace BMICalculator.Services.Tests
         }
 
         [Test]
+        [Category("State-1")]
         public async Task SaveResultShouldInsertRecordToDb()
         {
             //Arrange

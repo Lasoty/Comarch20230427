@@ -49,6 +49,16 @@ namespace BMICalculator.Services
             var bmi = bmiCalculator.CalculateBmi(weight, height);
             BmiClassification classification = bmiDeterminator.DetermineBmi(bmi);
 
+            if (classification >= BmiClassification.Obesity)
+                SaveResult(new BmiMeasurement
+                {
+                    Id = Guid.NewGuid(),
+                    BmiClassification = classification,
+                    Date = DateTime.Now,
+                    Summary = GetSummary(classification),
+                    Bmi = bmi
+                }).Wait();
+
             return new BmiResult()
             {
                 Bmi = bmi,
